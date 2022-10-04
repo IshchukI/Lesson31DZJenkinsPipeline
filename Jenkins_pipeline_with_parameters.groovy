@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Test Repo Setup') {
             steps {
-                if ( ${params.url} == "url") {
+                if ( params.url == "url") {
                   println("URL exists")
                   } else {
                   println("URL does not exist")
@@ -20,43 +20,16 @@ pipeline {
             }
 
         stage('Test Run') {
-           println("python -m pytest $params{test} $params{test_params} --url $params{url}")
+           println("python -m pytest ${params.test} ${params.test_params} --url ${params.url}")
         }
         stage('Report') {
             steps {
                 println("URL does not exist")
-//                 def report(${params.branch}){
-//                     description = "Report from Branch: ${branch}"
-// 	                println(description)
-//                      if (params.url != "") {
-//                         print("Run report generation for ${url}")
-//                     }
-//                 }
-//
-//                 def log_collection(){
-//                     description = "Save logs for a test run. (${params.branch};${params.url}"
-//                     if (params.save_logs == true) {
-//                         print(description)
-//                     }
                 }
             }
         stage('Log Collection') {
             steps {
                 println("URL does not exist")
-//                 def report(${params.branch}){
-//                     description = "Report from Branch: ${branch}"
-//                     println(description)
-//                     if (params.url != "") {
-//                         print("Run report generation for ${url}")
-//                     }
-//                 }
-//
-//                 def log_collection(){
-//                     description = "Save logs for a test run. (${params.branch};${params.url}"
-//                     if (params.save_logs == true) {
-//                         print(description)
-//                     }
-//                 }
             }
         }
     }
