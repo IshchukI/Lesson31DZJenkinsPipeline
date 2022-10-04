@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Report') {
             steps {
-                def report(branch){
+                def report(params.branch){
                     description = "Report from Branch: ${branch}"
 	                println(description)
                      if (params.url != "") {
@@ -41,7 +41,7 @@ pipeline {
             }
         stage('Log Collection') {
             steps {
-                def report(branch){
+                def report(params.branch){
                     description = "Report from Branch: ${branch}"
                     println(description)
                     if (params.url != "") {
