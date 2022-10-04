@@ -18,7 +18,7 @@ pipeline {
                   }
                 }
             }
-        }
+
         stage('Test Run') {
            println("python -m pytest $params{test} $params{test_params} --url $params{url}")
         }
@@ -38,7 +38,7 @@ pipeline {
 //                     if (params.save_logs == true) {
 //                         print(description)
 //                     }
-//                 }
+                }
             }
         stage('Log Collection') {
             steps {
