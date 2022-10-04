@@ -12,7 +12,7 @@ pipeline {
         stage('Test Repo Setup') {
             steps {
                println("URL does not exist")
-                if (params.url == "url") {
+                if ($params.url == "url") {
                   println("URL exists")
                   } else {
                   println("URL does not exist")
