@@ -11,16 +11,19 @@ pipeline {
     stages {
         stage('Test Repo Setup') {
             steps {
-                if ( params.url == "url") {
-                  println("URL exists")
-                  } else {
-                  println("URL does not exist")
-                  }
-                }
+               println("URL does not exist")
+//                 if (params.url == "url") {
+//                   println("URL exists")
+//                   } else {
+//                   println("URL does not exist")
+//                   }
+//                 }
             }
 
         stage('Test Run') {
-           println("python -m pytest ${params.test} ${params.test_params} --url ${params.url}")
+            steps {
+                println("python -m pytest ${params.test} ${params.test_params} --url ${params.url}")
+            }
         }
         stage('Report') {
             steps {
