@@ -28,7 +28,7 @@ pipeline {
         }
 
 
-        stage('Paral') {
+        stage('Parallel  execution') {
             parallel {
                 stage('Report') {
                     steps {
