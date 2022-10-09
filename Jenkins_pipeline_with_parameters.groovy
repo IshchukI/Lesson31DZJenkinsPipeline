@@ -30,7 +30,6 @@ pipeline {
             steps {
                 println("init Report stage")
 
-                script {
                     def report(){
                         description = "Report from Branch: ${params.branch}"
                         println(description)
@@ -45,7 +44,7 @@ pipeline {
                             print(description)
                         }
                     }
-                }
+
 
 
                 }
