@@ -66,7 +66,7 @@ pipeline {
         }
 
 
-        stage('Paral') {
+//         stage('Paral') {
             parallel {
                 stage('Par1') {
                     steps {
@@ -83,7 +83,7 @@ pipeline {
                     }
                 }
 
-            }
+//             }
         }
     }
 }
