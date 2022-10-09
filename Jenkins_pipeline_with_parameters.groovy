@@ -70,13 +70,16 @@ pipeline {
             parallel {
                 stage('Par1') {
                     steps {
+
                         print("Run Par1")
+                        sleep 5
                     }
                 }
 
                 stage('Par2') {
                     steps {
                         print("Run Par2")
+                        sleep 5
                     }
                 }
 
