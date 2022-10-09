@@ -72,14 +72,14 @@ pipeline {
                     steps {
 
                         print("Run Par1")
-                        sleep 5
+                        sleep 30
                     }
                 }
 
                 stage('Par2') {
                     steps {
                         print("Run Par2")
-                        sleep 5
+                        sleep 30
                     }
                 }
 
