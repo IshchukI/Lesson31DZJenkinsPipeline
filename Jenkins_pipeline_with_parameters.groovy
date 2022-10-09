@@ -70,13 +70,13 @@ pipeline {
             parallel {
                 stage('Par1') {
                     steps {
-                        rint("Run Par1")
+                        print("Run Par1")
                     }
                 }
 
                 stage('Par2') {
                     steps {
-                        rint("Run Par2")
+                        print("Run Par2")
                     }
                 }
 
