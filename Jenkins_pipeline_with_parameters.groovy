@@ -30,20 +30,21 @@ pipeline {
             steps {
                 println("init Report stage")
 
-                    def report(){
-                        description = "Report from Branch: ${params.branch}"
-                        println(description)
-                        if (params.url != "") {
-                            print("Run report generation for ${params.url}")
-                        }
+                description = "Report from Branch: ${params.branch}"
+                println(description)
+                script {
+                    if (params.url != "") {
+                         print("Run report generation for ${params.url}")
                     }
+                }
 
-                    def log_collection(){
-                        description = "Save logs for a test run. (${params.branch};${params.url}"
-                        if (params.save_logs == true) {
-                            print(description)
-                        }
+
+                escription = "Save logs for a test run. (${params.branch};${params.url}"
+                script {
+                    if (params.save_logs == true) {
+                        print(description)
                     }
+                }
 
 
 
