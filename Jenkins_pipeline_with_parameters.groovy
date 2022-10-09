@@ -31,7 +31,7 @@ pipeline {
                 println("init Report stage")
 
                 script {
-                    def report(branch){
+                    def report(params.branch){
                         description = "Report from Branch: ${branch}"
                         println(description)
                         if (params.url != "") {
