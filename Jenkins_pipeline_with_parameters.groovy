@@ -32,10 +32,10 @@ pipeline {
 
                 script {
                     def report(params.branch){
-                        description = "Report from Branch: ${branch}"
+                        description = "Report from Branch: ${params.branch}"
                         println(description)
                         if (params.url != "") {
-                            print("Run report generation for ${url}")
+                            print("Run report generation for ${params.url}")
                         }
                     }
 
