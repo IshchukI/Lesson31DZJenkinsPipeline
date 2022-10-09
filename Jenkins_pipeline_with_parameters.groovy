@@ -26,64 +26,49 @@ pipeline {
                 println("python -m pytest ${params.test} ${params.test_params} --url ${params.url}")
             }
         }
-        stage('Report') {
-            steps {
-                println("init Report stage")
-                script {
-                    description = "Report from Branch: ${params.branch}"
-                    println(description)
-                    if (params.url != "") {
-                         print("Run report generation for ${params.url}")
-                    }
-                }
-                script {
-                    description = "Save logs for a test run. (${params.branch};${params.url})"
-                    if (params.save_logs == true) {
-                        print(description)
-                    }
-                }
-            }
-        }
-        stage('Log Collection') {
-            steps {
-                println("init Log Collection stage")
 
 
-                script {
-                    description = "Report from Branch: ${params.branch}"
-                    println(description)
-                    if (params.url != "") {
-                         print("Run report generation for ${params.url}")
-                    }
-                }
-                script {
-                    description = "Save logs for a test run. (${params.branch};${params.url})"
-                    if (params.save_logs == true) {
-                        print(description)
-                    }
-                }
-            }
-        }
-
-
-//         stage('Paral') {
+        stage('Paral') {
             parallel {
-                stage('Par1') {
+                stage('Report') {
                     steps {
-
-                        print("Run Par1")
-                        sleep 5
+                        println("init Report stage")
+                        script {
+                            description = "Report from Branch: ${params.branch}"
+                            println(description)
+                            if (params.url != "") {
+                                 print("Run report generation for ${params.url}")
+                            }
+                        }
+                        script {
+                            description = "Save logs for a test run. (${params.branch};${params.url})"
+                            if (params.save_logs == true) {
+                                print(description)
+                            }
+                        }
                     }
                 }
-
-                stage('Par2') {
+                stage('Log Collection') {
                     steps {
-                        print("Run Par2")
-                        sleep 5
+                        println("init Log Collection stage")
+
+
+                        script {
+                            description = "Report from Branch: ${params.branch}"
+                            println(description)
+                            if (params.url != "") {
+                                 print("Run report generation for ${params.url}")
+                            }
+                        }
+                        script {
+                            description = "Save logs for a test run. (${params.branch};${params.url})"
+                            if (params.save_logs == true) {
+                                print(description)
+                            }
+                        }
                     }
                 }
-
-//             }
+            }
         }
     }
 }
