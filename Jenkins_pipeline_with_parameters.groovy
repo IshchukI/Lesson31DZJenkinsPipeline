@@ -36,22 +36,50 @@ pipeline {
                          print("Run report generation for ${params.url}")
                     }
                 }
-
                 script {
-                    description = "Save logs for a test run. (${params.branch};${params.url}"
+                    description = "Save logs for a test run. (${params.branch};${params.url})"
                     if (params.save_logs == true) {
                         print(description)
                     }
                 }
-
-
-
-                }
             }
+        }
         stage('Log Collection') {
             steps {
                 println("init Log Collection stage")
+
+
+                script {
+                    description = "Report from Branch: ${params.branch}"
+                    println(description)
+                    if (params.url != "") {
+                         print("Run report generation for ${params.url}")
+                    }
+                }
+                script {
+                    description = "Save logs for a test run. (${params.branch};${params.url})"
+                    if (params.save_logs == true) {
+                        print(description)
+                    }
+                }
             }
         }
+
+
+        stage('Paral') {
+            parallel {
+                stage('Par1') {
+                    steps {
+                        rint("Run Par1")
+                    }
+                }
+
+                stage('Par2') {
+                    steps {
+                        rint("Run Par2")
+                    }
+                }
+
+            }
     }
 }
